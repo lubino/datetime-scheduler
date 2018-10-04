@@ -1,4 +1,14 @@
-const KEYS = "sunday,monday,tuesday,wednesday,thursday,friday,saturday".split(',');
+const DAYS = {
+    sunday: true,
+    monday: true,
+    tuesday: true,
+    wednesday: true,
+    thursday: true,
+    friday: true,
+    saturday: true
+};
+const {sunday, monday, tuesday, wednesday, thursday, friday, saturday} = DAYS;
+const KEYS = Object.keys(DAYS);
 const minuteMillis = 60000;
 const minimalTimeout = 60 * minuteMillis;
 const active = [];
@@ -91,7 +101,7 @@ function handleTimer(creatingNew) {
         const suggestedTimeout = at - now;
         if (suggestedTimeout < 0) {
             active.splice(0, 1);
-            execute(name, options).then(()=>{
+            execute(name, options).then(() => {
                 addScheduler(false, new Date(now), name, configuration, options);
             });
         } else {
@@ -118,4 +128,13 @@ function minutesToDaysHoursMinutesArr(inMillis) {
 
 const setDebug = _debug => debug = _debug;
 
-module.exports = {setDebug, createScheduler, clearScheduler};
+module.exports = {
+    //Main methods:
+    createScheduler, clearScheduler,
+
+    //logger:
+    setDebug,
+
+    //days:
+    sunday, monday, tuesday, wednesday, thursday, friday, saturday
+};
