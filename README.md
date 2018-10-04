@@ -6,7 +6,7 @@ ECMAScript 6 (JavaScript) NPM module for executing scheduled tasks
 npm i datetime-scheduler --save
 ```
 
-**Notice:** This module has zero NPM dependencies, but it uses 
+**Notice:** This module has zero NPM dependencies, but it uses ES6 language.
 
 ### Usage
 This example calls *asyncTask* method every saturday and sunday at 12:15 (and 30.500 seconds)
