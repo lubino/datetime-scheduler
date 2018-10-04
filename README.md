@@ -41,7 +41,7 @@ const options = {
 createScheduler("weekend at 12:15:30.500", configuration, options);
 ```
 
-Check [weekend.js](https://github.com/lubino/datetime-scheduler/blob/master/example/app.js) for a working example.
+Check [weekend.js](https://github.com/lubino/datetime-scheduler/blob/master/example/weekend.js) for a working example.
 
 ### License
 MIT License
