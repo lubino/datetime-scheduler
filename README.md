@@ -6,7 +6,7 @@ ECMAScript 6 (JavaScript) NPM module for executing scheduled tasks
 npm i datetime-scheduler --save
 ```
 
-**Notice:** This module has zero NPM dependencies, but it uses 
+**Notice:** This module has zero NPM dependencies, but it uses ES6 language.
 
 ### Usage
 ``` javascript
