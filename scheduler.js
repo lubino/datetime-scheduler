@@ -10,7 +10,7 @@ const DAYS = {
 const {sunday, monday, tuesday, wednesday, thursday, friday, saturday} = DAYS;
 const KEYS = Object.keys(DAYS);
 const minuteMillis = 60000;
-const minimalTimeout = 60 * minuteMillis;
+const minimalTimeout = 30 * minuteMillis;
 const active = [];
 let debug = message => console.log(`scheduler: ${message}`);
 
@@ -29,7 +29,11 @@ async function execute(name, options) {
 const millisFrom = (days, hours, minutes, seconds, millis) => (((days * 24 + hours) * 60 + minutes) * 60 + seconds) * 1000 + millis;
 
 function millisToNext(now, configuration) {
-    const {days, time, timestamp} = configuration;
+    const {days, time, timestamp, interval} = configuration;
+    if (interval) {
+        const timespan = interval * minuteMillis;
+        return timespan;
+    }
     if (timestamp) {
         const timeout = timestamp - now.getTime();
         if (timeout >= 0) return timeout;
@@ -116,7 +120,6 @@ function handleTimer(creatingNew) {
             }, timeout);
         }
     }
-
 }
 
 function minutesToDaysHoursMinutesArr(inMillis) {
