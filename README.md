@@ -9,6 +9,7 @@ npm i datetime-scheduler --save
 **Notice:** This module has zero NPM dependencies, but it uses ES6 language.
 
 ### Usage
+This example calls *asyncTask* method every saturday and sunday at 12:15 (and 30.500 seconds)
 ``` javascript
 const {createScheduler} = require('datetime-scheduler');
 
@@ -39,6 +40,14 @@ const options = {
 };
 
 createScheduler("weekend at 12:15:30.500", configuration, options);
+```
+
+In case you need only one execution on a specific day
+``` javascript
+const specificDay = "2019-05-18T19:30:00.000Z";
+const configuration = {
+    "timestamp": new Date(specificDay).getTime()
+};
 ```
 
 You also can use a timestamp or an interval as your configuration options. 
