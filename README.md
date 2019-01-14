@@ -51,7 +51,12 @@ const configuration = {
 ```
 
 You also can use a timestamp or an interval as your configuration options. 
-
+Interval should be stated in minutes.
+``` javascript
+const configuration = {
+    "interval": 40
+};
+```
 
 Check [weekend.js](https://github.com/lubino/datetime-scheduler/blob/master/example/weekend.js) for a working example.
 
