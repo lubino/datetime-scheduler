@@ -60,8 +60,9 @@ function addScheduler(creatingNew, now, name, configuration, options) {
     const time = now.getTime();
     const inMillis = millisToNext(now, configuration);
     if (inMillis >= 0) {
-        const at = new Date(time + inMillis);
-        const index = active.length > 0 ? active.findIndex(item => at < item.at) : 0;
+        const at  = time + inMillis;
+        const fi = active.findIndex(item => at < item.at);
+        const index = active.length > 0 ? (fi === -1 ? active.length : fi) : 0; // -1
         active.splice(index, 0, {at, name, configuration, options});
         handleTimer(creatingNew);
     }
