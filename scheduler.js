@@ -92,6 +92,14 @@ function clearScheduler(name) {
         handleTimer(true);
     }
 }
+function clearAllSchedulers() {
+    const {length} = active;
+    if (length > 0) {
+        active.splice(0, length);
+        debug(`Canceling previously scheduled jobs`);
+        handleTimer(false);
+    }
+}
 
 let timeoutReference = null;
 
@@ -134,7 +142,7 @@ const setDebug = _debug => debug = _debug;
 
 module.exports = {
     //Main methods:
-    createScheduler, clearScheduler,
+    createScheduler, clearScheduler, clearAllSchedulers,
 
     //logger:
     setDebug,
